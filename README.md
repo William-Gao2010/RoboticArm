@@ -47,8 +47,5 @@
 
 ##开发人员
 - @JChanty 2013206955@qq.com
-- @William
-
-
 - @WilliamGao 17156310913ghj@gmail.com
-- @
+- @zhr-deepseek 19850169211@163.com
