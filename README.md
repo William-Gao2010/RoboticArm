@@ -46,5 +46,5 @@
 3. 观察云台动作 + 激光同步
 
 ##开发人员
-@JChanty 2013206955@qq.com
-@WilliamGao 17156310913ghj@gmail.com
+-@JChanty 2013206955@qq.com
+-@WilliamGao 17156310913ghj@gmail.com
