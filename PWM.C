@@ -1,6 +1,8 @@
 #include <STC8H.H>
 #include <stdlib.h>
 
+sbit laser = P3^3;
+
 void Delay1ms(int ms)	//@35MHz
 {
 	unsigned char data i, j;
@@ -124,7 +126,7 @@ void UpdatePwm(unsigned char num, unsigned int duty_D)					//duty_D?????*1000
 }
 
 
-void run(unsigned char *Arri)
+void run(unsigned char *Arri,unsigned char *LaserData)
 {
 	UpdatePwm(1,Arri[0]);
 	Delay1ms(100);
@@ -133,6 +135,11 @@ void run(unsigned char *Arri)
 	Delay1ms(100);
 	UpdatePwm(4,Arri[1]);
 	Delay1ms(100);
-	UpdatePwm(5,Arri[2]);
-	Delay1ms(100);
+	
+	if(LaserData[0])
+	{
+		UpdatePwm(5,Arri[1]);
+		Delay1ms(100);
+		laser=LaserData[0];
+	}
 }
