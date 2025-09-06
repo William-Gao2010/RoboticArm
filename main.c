@@ -7,7 +7,7 @@
 #define true 1
 #define false 0
 
-sbit laser = P3^3;
+
 
 unsigned char DegreeData[3];
 unsigned char num1;
@@ -52,18 +52,18 @@ void SendRecieveData()
 
 void x()
 {
-		if((number[3]>0x0a)){DegreeData[0]+=5;	number[3]=(number[3]-0x7f);}
+		if((number[3]>0x0a)){DegreeData[0]+=5;	}
 		if(DegreeData[0]>0x80)DegreeData[0]=0x82;
-		if((number[3]<0x0a)){DegreeData[0]-=5;	number[3]=(0x7f-number[3]);}
+		if((number[3]<0x0a)){DegreeData[0]-=5;	}
 		if(DegreeData[0]<0x26)DegreeData[0]=0x21;
 }
 
 void y()
 	{
-		if((number[2]>0x08)){DegreeData[1]+=5;DegreeData[2]-=5;number[2]=(number[2]-0x7f);}
-		if(DegreeData[1]>0x80){DegreeData[1]=0x82;DegreeData[2]=0x21;}
-		if((number[2]<0x08)){DegreeData[1]-=5;DegreeData[2]+=5;number[2]=(0x7f-number[2]);}
-		if(DegreeData[1]<0x26){DegreeData[1]=0x21;DegreeData[2]=0x82;}
+		if((number[2]>0x08)){DegreeData[1]+=5;DegreeData[1]-=5;}
+		if(DegreeData[1]>0x80){DegreeData[1]=0x82;DegreeData[1]=0x21;}
+		if((number[2]<0x08)){DegreeData[1]-=5;DegreeData[1]+=5;}
+		if(DegreeData[1]<0x26){DegreeData[1]=0x21;DegreeData[1]=0x82;}
 }
 	
 
@@ -96,8 +96,7 @@ void main()
 						 check();
 						 SendRecieveData();
 						 DimensionsCheck();
-						 run(DegreeData);
-						 laser=number[0];
-							run(DegreeData);
+						 run(DegreeData,number);
+						 
         }
 }
